@@ -160,6 +160,16 @@ module Capybara
       end
       nil
     end
+    
+    def wait_for_condition(script)
+      Timeout::timeout(10) {
+        result = false
+        while !result
+          result = evaluate_script(script)
+        end
+        return result
+      }
+    end
 
     def find_field(locator)
       find(XPath.field(locator))
