@@ -24,6 +24,7 @@ shared_examples_for "session with javascript support" do
       @session.select('My Waiting Option', :from => 'waiter')
       @session.evaluate_script('activeRequests == 1').should be_true
       @session.wait_for_condition('activeRequests == 0').should be_true
+      @session.evaluate_script('activeRequests == 0').should be_true
     end
     
     it "should timeout" do
@@ -31,6 +32,7 @@ shared_examples_for "session with javascript support" do
       @session.select('Timeout', :from => 'timeout')
       @session.evaluate_script('activeRequests == 1').should be_true
       @session.wait_for_condition('activeRequests == 0').should be_false
+      @session.evaluate_script('activeRequests == 0').should be_false
     end
   end
 
