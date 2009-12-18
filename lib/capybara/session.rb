@@ -162,13 +162,17 @@ module Capybara
     end
     
     def wait_for_condition(script)
-      Timeout::timeout(10) {
-        result = false
-        while !result
-          result = evaluate_script(script)
+      begin
+        Timeout.timeout 10 do
+          result = false
+          while !result
+            result = evaluate_script(script)
+          end
+          return result
         end
-        return result
-      }
+      rescue Timeout::Error
+      	return false
+      end
     end
 
     def find_field(locator)
