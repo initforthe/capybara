@@ -6,7 +6,7 @@
     <script src="/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
     //<![CDATA[
-    	var activeRequests = 0;
+      var activeRequests = 0;
       $(function() {
         $('#change').text('I changed it');
         $('#drag').draggable();
@@ -26,11 +26,11 @@
           return false;
         });
         $('#waiter').change(function() {
-        	activeRequests = 1;
-        	setTimeout('activeRequests = 0', 5000);
+          activeRequests = 1;
+          setTimeout('activeRequests = 0', 5000);
         });
         $('#timeout').change(function() {
-        	activeRequests = 1;
+          activeRequests = 1;
         });
       });
     //]]>
@@ -57,10 +57,10 @@
       </select>
     </p>
     <p>
-    	<select id="timeout">
-    		<option>Foo</option>
-    		<option>Timeout</option>
-    	</select>
+      <select id="timeout">
+        <option>Foo</option>
+        <option>Timeout</option>
+      </select>
     </p>
   </body>
 </html>
