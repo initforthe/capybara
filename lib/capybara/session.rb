@@ -163,9 +163,9 @@ module Capybara
     
     def wait_for_condition(script)
       begin
-        Timeout.timeout 10 do
+        Timeout.timeout(Capybara.default_condition_timeout) do
           result = false
-          while !result
+          until result
             result = evaluate_script(script)
           end
           return result
